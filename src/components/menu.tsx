@@ -141,7 +141,7 @@ export const Menu = ({
 		  {autoDeleteLog ? (
             <IconButton
               iconName="24/FrameEffect"
-              label="AutoKill"
+              label="autoKill"
               isProcessing={false}
               onClick={() => setautoDeleteLog(false)}
             />
