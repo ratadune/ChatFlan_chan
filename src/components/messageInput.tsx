@@ -10,7 +10,12 @@ type Props = {
   onChangeUserMessage: (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;
-  onClickSendButton: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  
+  //onClickSendButton: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onClickSendButton: (
+    event?: React.MouseEvent<HTMLButtonElement>
+  ) => void;
+  
   onClickMicButton: (event: React.MouseEvent<HTMLButtonElement>) => void;
   onClickLangButton: (event: React.MouseEvent<HTMLButtonElement>) => void;
 };
@@ -24,11 +29,11 @@ export const MessageInput = ({
   lang,
   onClickLangButton,
 }: Props) => {
+	
 	const handleKeyDown = useCallback(
 	  (event: React.KeyboardEvent<HTMLInputElement>) => {
 		if (event.key === "Enter") {
-		  const newEvent = new MouseEvent("click");
-		  onClickSendButton(newEvent);
+		  onClickSendButton();
 		}
 	  },
 	  [onClickSendButton]
