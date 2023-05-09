@@ -130,18 +130,20 @@ export const Menu = ({
 		   <IconButton
             iconName="24/Trash"
             label="全消し"
+			isProcessing={false}
             onClick={() =>  onDeleteChatLog(0) }
           ></IconButton>
 		  <IconButton
             iconName="24/Reload"
             label="undo"
+			isProcessing={false}
             onClick={() =>  onUndoChatLog() }
           ></IconButton>
 		  
 		  {autoDeleteLog ? (
             <IconButton
               iconName="24/FrameEffect"
-              label="autoKill"
+              label="AutoKill"
               isProcessing={false}
               onClick={() => setautoDeleteLog(false)}
             />
