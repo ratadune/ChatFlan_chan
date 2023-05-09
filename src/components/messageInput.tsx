@@ -30,18 +30,18 @@ export const MessageInput = ({
   onClickLangButton,
 }: Props) => {
 	
-  const handleKeyDown = useCallback(
-    (event: React.KeyboardEvent<HTMLInputElement>) => {
-      if (event.key === "Enter") {
-        onClickSendButton();
-      }
-    },
-    [onClickSendButton]
-  );
+	const handleKeyDown = useCallback(
+	  (event: React.KeyboardEvent<HTMLInputElement>) => {
+		if (event.key === "Enter") {
+		  onClickSendButton();
+		}
+	  },
+	  [onClickSendButton]
+	);
   
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.keyCode === 17) {
+      if (event.key === 'Shift') {
         const inputElement = document.querySelector('input');
 		if (inputElement) {
 			inputElement.focus();
