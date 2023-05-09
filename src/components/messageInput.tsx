@@ -30,17 +30,17 @@ export const MessageInput = ({
   onClickLangButton,
 }: Props) => {
 	
-	const handleKeyDown = useCallback(
-	  (event: React.KeyboardEvent<HTMLInputElement>) => {
-		if (event.key === "Enter") {
-		  onClickSendButton();
-		}
-	  },
-	  [onClickSendButton]
-	);
+  const handleKeyDown = useCallback(
+    (event: React.KeyboardEvent<HTMLInputElement>) => {
+      if (event.key === "Enter") {
+        onClickSendButton();
+      }
+    },
+    [onClickSendButton]
+  );
   
   useEffect(() => {
-    const handleKeyDown = (event) => {
+    const handleKeyDown = (event: KeyboardEvent) => {
       if (event.keyCode === 17) {
         document.querySelector('input').focus();
       }
