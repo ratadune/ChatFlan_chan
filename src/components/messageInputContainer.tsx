@@ -20,6 +20,7 @@ export const MessageInputContainer = ({
   const [speechRecognition, setSpeechRecognition] =
     useState<SpeechRecognition>();
   const [isMicRecording, setIsMicRecording] = useState(false);
+  const [lang, setLang] = useState("ja-JP");
 
   // 音声認識の結果を処理する
   const handleRecognitionResult = useCallback(
@@ -58,12 +59,21 @@ export const MessageInputContainer = ({
     onChatProcessStart(userMessage);
   }, [onChatProcessStart, userMessage]);
 
+  const handleClickLangButton = useCallback(() => {
+    setLang((prevLang) => (prevLang === "ja-JP" ? "zh-TW" : "ja-JP"));
+  }, []);
+
+
   useEffect(() => {
     const SpeechRecognition =
       window.webkitSpeechRecognition || window.SpeechRecognition;
 
     const recognition = new SpeechRecognition();
-    recognition.lang = "ja-JP";
+    //recognition.lang = "ja-JP";
+	//recognition.lang = "zh-TW";	    
+	recognition.lang = lang;
+	
+	
     recognition.interimResults = true; // 認識の途中結果を返す
     recognition.continuous = false; // 発言の終了時に認識を終了する
 
@@ -71,7 +81,7 @@ export const MessageInputContainer = ({
     recognition.addEventListener("end", handleRecognitionEnd);
 
     setSpeechRecognition(recognition);
-  }, [handleRecognitionResult, handleRecognitionEnd]);
+  }, [handleRecognitionResult, handleRecognitionEnd, lang]);
 
   useEffect(() => {
     if (!isChatProcessing) {
@@ -87,6 +97,8 @@ export const MessageInputContainer = ({
       onChangeUserMessage={(e) => setUserMessage(e.target.value)}
       onClickMicButton={handleClickMicButton}
       onClickSendButton={handleClickSendButton}
+      lang={lang}
+      onClickLangButton={handleClickLangButton}
     />
   );
 };
