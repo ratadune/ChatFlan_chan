@@ -42,7 +42,10 @@ export const MessageInput = ({
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.keyCode === 17) {
-        document.querySelector('input').focus();
+        const inputElement = document.querySelector('input');
+		if (inputElement) {
+			inputElement.focus();
+		}
       }
     };
     document.addEventListener('keydown', handleKeyDown);
