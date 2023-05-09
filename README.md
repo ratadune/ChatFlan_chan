@@ -1,7 +1,16 @@
 # ChatVRM
+Forked from [pixiv/ChatVRM](https://github.com/pixiv/ChatVRM)
+---
+# New Features
 
+* Undo button (deletes the previous 2 messages, 1 from you and 1 from GPT).
+* Auto chatlog delete button (keeps only the 25 newest chatlogs to prevent GPT from not responding).
+* Delete all logs button.
+* Switch button for Japanese/Chinese speech recognition.
+* Press Enter key to send message and press Ctrl key to auto focus on textbox.
+* Using Flandre model in default which made by me.
+---
 ChatVRMはブラウザで簡単に3Dキャラクターと会話ができるデモアプリケーションです。
-
 VRMファイルをインポートしてキャラクターに合わせた声の調整や、感情表現を含んだ返答文の生成などを行うことができます。
 
 ChatVRMの各機能は主に以下の技術を使用しています。
