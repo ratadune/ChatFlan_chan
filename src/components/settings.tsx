@@ -35,6 +35,10 @@ export const Settings = ({
   onChangeKoeiroParam,
   onClickOpenVrmFile,
 }: Props) => {
+
+
+
+
   return (
     <div className="absolute z-40 w-full h-full bg-white/80 backdrop-blur ">
       <div className="absolute m-24">
@@ -47,22 +51,24 @@ export const Settings = ({
       <div className="max-h-full overflow-auto">
         <div className="text-text1 max-w-3xl mx-auto px-24 py-64 ">
           <div className="my-24 typography-32 font-bold">設定</div>
+		  
+		
+		  
           <div className="my-24">
             <div className="my-16 typography-20 font-bold">OpenAI API キー</div>
             <input
               className="text-ellipsis px-16 py-8 w-col-span-2 bg-surface1 hover:bg-surface1-hover rounded-8"
               type="text"
-              placeholder="sk-..."
+              placeholder="sk-"
               value={openAiKey}
               onChange={onChangeAiKey}
             />
             <div>
               APIキーは
-              <Link
-                url="https://platform.openai.com/account/api-keys"
-                label="OpenAIのサイト"
-              />
-              で取得できます。取得したAPIキーをフォームに入力してください。
+              <Link url="https://platform.openai.com/account/api-keys"
+                label="OpenAIのサイト"/>
+              で取得できます。
+			  
             </div>
             <div className="my-16">
               入力されたAPIキーで、ブラウザから直接OpenAIのAPIを利用しますので、サーバー等には保存されません。
@@ -168,34 +174,41 @@ export const Settings = ({
               ></input>
             </div>
           </div>
+		  
           {chatLog.length > 0 && (
             <div className="my-40">
-              <div className="my-16 typography-20 font-bold">会話履歴</div>
+              <div className="my-16 typography-20 font-bold">会話履歴  ： </div>
               <div className="my-8">
                 {chatLog.map((value, index) => {
+					
                   return (
                     <div
                       key={index}
                       className="my-8 grid grid-flow-col  grid-cols-[min-content_1fr] gap-x-fixed"
                     >
-                      <div className="w-[64px] py-8">
-                        {value.role === "assistant" ? "Character" : "You"}
+                      <div className="w-[128px] py-8">
+                        {value.role === "assistant" ? "フランドール"+index : index+" You"}
                       </div>
                       <input
                         key={index}
                         className="bg-surface1 hover:bg-surface1-hover rounded-8 w-full px-16 py-8"
                         type="text"
                         value={value.content}
-                        onChange={(event) => {
-                          onChangeChatLog(index, event.target.value);
+                        					
+						onChange={(event) => {
+						  onChangeChatLog(index, event.target.value);
                         }}
                       ></input>
+					  <button onClick={() => 　onChangeChatLog(index,"")}>[del]</button>
+					  
                     </div>
                   );
+				  
                 })}
               </div>
             </div>
           )}
+		  
         </div>
       </div>
     </div>
