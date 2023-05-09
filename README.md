@@ -1,8 +1,15 @@
 # ChatVRM
-Forked from [pixiv/ChatVRM](https://github.com/pixiv/ChatVRM)
+### Forked from [pixiv/ChatVRM](https://github.com/pixiv/ChatVRM)
 ---
 # New Features
-
+<JP>
+* 自動チャットログ削除ボタン（最新のチャットログ25件のみを保持し、GPTの応答不良を防止します）
+* 全ログ削除ボタン
+* アンドゥボタン（あなたとGPTから1つずつ、前の2つのメッセージを削除します）
+* 日本語/中国語音声認識用のスイッチボタン
+* Enterキーでメッセージを送信する、Ctrlキーでテキストボックスに自動フォーカスする。
+* 私は作ったフランちゃんがデフォルトモデルに。  
+<EN>
 * Undo button (deletes the previous 2 messages, 1 from you and 1 from GPT).
 * Auto chatlog delete button (keeps only the 25 newest chatlogs to prevent GPT from not responding).
 * Delete all logs button.
