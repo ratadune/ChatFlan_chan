@@ -1,7 +1,7 @@
 # ChatVRM
 ### Forked from [pixiv/ChatVRM](https://github.com/pixiv/ChatVRM)
 
-[Play Here!](https://ratadune.github.io/ChatVRM_modified/)
+Chat Flanchan [Play Here!](https://ratadune.github.io/ChatVRM_modified/)
 ---
 # New Features
 + 【JP】
