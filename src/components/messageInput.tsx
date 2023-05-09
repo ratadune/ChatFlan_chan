@@ -24,14 +24,15 @@ export const MessageInput = ({
   lang,
   onClickLangButton,
 }: Props) => {
-  const handleKeyDown = useCallback(
-    (event: React.KeyboardEvent<HTMLInputElement>) => {
-      if (event.key === "Enter") {
-        onClickSendButton(event);
-      }
-    },
-    [onClickSendButton]
-  );
+	const handleKeyDown = useCallback(
+	  (event: React.KeyboardEvent<HTMLInputElement>) => {
+		if (event.key === "Enter") {
+		  const newEvent = new MouseEvent("click");
+		  onClickSendButton(newEvent);
+		}
+	  },
+	  [onClickSendButton]
+	);
   
   useEffect(() => {
     const handleKeyDown = (event) => {
