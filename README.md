@@ -1,5 +1,7 @@
 # ChatVRM
 ### Forked from [pixiv/ChatVRM](https://github.com/pixiv/ChatVRM)
+
+[Play Here!](https://ratadune.github.io/ChatVRM_modified/)
 ---
 # New Features
 + 【JP】
@@ -7,14 +9,14 @@
     - [x] 全ログ削除ボタン。
     - [x] アンドゥボタン。（あなたとGPTから1つずつ、前の2つのメッセージを削除します）
     - [x] 日本語/中国語音声認識用のスイッチボタン。
-    - [x] Enterキーでメッセージを送信する、Ctrlキーでテキストボックスに自動フォーカスする。
+    - [x] Enterキーでメッセージを送信する、Shfitキーでテキストボックスに自動フォーカスする。
     - [x] 私は作ったフランちゃんがデフォルトモデルに。
 + 【EN】
     - [x] Undo button (deletes the previous 2 messages, 1 from you and 1 from GPT).
     - [x] Auto chatlog delete button (keeps only the 25 newest chatlogs to prevent GPT from not responding).
     - [x] Delete all logs button.
     - [x] Switch button for Japanese/Chinese speech recognition.
-    - [x] Press Enter key to send message and press Ctrl key to auto focus on textbox.
+    - [x] Press Enter key to send message and press Shfit key to auto focus on textbox.
     - [x] Using Flandre model in default which made by me.
 ---
 ChatVRMはブラウザで簡単に3Dキャラクターと会話ができるデモアプリケーションです。
