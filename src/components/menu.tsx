@@ -2,7 +2,7 @@ import { IconButton } from "./iconButton";
 import { Message } from "@/features/messages/messages";
 import { KoeiroParam } from "@/features/constants/koeiroParam";
 import { ChatLog } from "./chatLog";
-import React, { useCallback, useContext, useRef, useState } from "react";
+import React, { useCallback, useContext, useRef, useState,useEffect } from "react";
 import { Settings } from "./settings";
 import { ViewerContext } from "@/features/vrmViewer/viewerContext";
 import { AssistantText } from "./assistantText";
@@ -31,6 +31,8 @@ export const Menu = ({
 }: Props) => {
   const [showSettings, setShowSettings] = useState(false);
   const [showChatLog, setShowChatLog] = useState(false);
+  const [autoDeleteLog, setautoDeleteLog] = useState(false);
+  
   const { viewer } = useContext(ViewerContext);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -82,7 +84,23 @@ export const Menu = ({
     },
     [viewer]
   );
+	
+	const onDeleteChatLog = (mylenth: number) => {
+		while  (chatLog.length > mylenth) {			
+				chatLog.splice(0, 1);			
+		}		
+	};
+	const onUndoChatLog = () => {				
+		chatLog.splice( chatLog.length-1 , 1);
+		chatLog.splice( chatLog.length-1 , 1);
+	};
+    useEffect(() => {
+		if (autoDeleteLog) {
+		  onDeleteChatLog(25);
+		}
+	}, [autoDeleteLog,chatLog.length]);
 
+	
   return (
     <>
       <div className="absolute z-10 m-24">
@@ -96,21 +114,49 @@ export const Menu = ({
           {showChatLog ? (
             <IconButton
               iconName="24/CommentOutline"
-              label="会話ログ"
+              label="log"
               isProcessing={false}
               onClick={() => setShowChatLog(false)}
             />
           ) : (
             <IconButton
               iconName="24/CommentFill"
-              label="会話ログ"
+              label="log"
               isProcessing={false}
               disabled={chatLog.length <= 0}
               onClick={() => setShowChatLog(true)}
             />
           )}
+		   <IconButton
+            iconName="24/Trash"
+            label="全滅"
+            onClick={() =>  onDeleteChatLog(0) }
+          ></IconButton>
+		  <IconButton
+            iconName="24/Reload"
+            label="undo"
+            onClick={() =>  onUndoChatLog() }
+          ></IconButton>
+		  
+		  {autoDeleteLog ? (
+            <IconButton
+              iconName="24/FrameEffect"
+              label="autoKill"
+              isProcessing={false}
+              onClick={() => setautoDeleteLog(false)}
+            />
+          ) : (
+            <IconButton
+              iconName="24/FrameSize"
+              label="off"
+              isProcessing={false}
+              onClick={() => setautoDeleteLog(true)}
+            />
+          )}
+		  
         </div>
       </div>
+	  
       {showChatLog && <ChatLog messages={chatLog} />}
       {showSettings && (
         <Settings
