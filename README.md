@@ -2,7 +2,7 @@
 + A modified model with new features which can chat with Flandre
 + フランちゃんとチャットできる新機能を備えた改良chatVRMです
 + 和芙蘭聊天的愉快chatVRM改良版本
-### Chat Flanchan ⇨ [Play Here!](https://ratadune.github.io/ChatVRM_modified/)
+### Chat Flanchan ⇨ [Play Here!](https://ratadune.github.io/ChatFlan_chan/))
 <img decoding="async" src="https://ratadune.github.io/ratadunemain.io/ogp.png" width="100%">
 
 ---
