@@ -1,6 +1,7 @@
 # ChatVRM :Forked from [pixiv/ChatVRM](https://github.com/pixiv/ChatVRM)
 ### Chat Flanchan ⇨ [Play Here!](https://ratadune.github.io/ChatVRM_modified/)
-<img decoding="async" src="http://static.runoob.com/images/runoob-logo.png" width="50%">
+<img decoding="async" src="https://ratadune.github.io/ratadunemain.io/ogp.png" width="50%">
+
 ---
 # New Features
 + 【JP】
