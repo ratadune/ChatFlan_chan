@@ -129,7 +129,7 @@ export const Menu = ({
           )}
 		   <IconButton
             iconName="24/Trash"
-            label="全消し"
+            label="全消去"
 			isProcessing={false}
             onClick={() =>  onDeleteChatLog(0) }
           ></IconButton>
