@@ -33,6 +33,8 @@ export const Menu = ({
   const [showChatLog, setShowChatLog] = useState(false);
   const [autoDeleteLog, setautoDeleteLog] = useState(false);
   
+  const [outputMessage, setOutputMessage] = useState<Message[]>([]);
+  
   const { viewer } = useContext(ViewerContext);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -84,10 +86,12 @@ export const Menu = ({
     },
     [viewer]
   );
-	
+
 	const onDeleteChatLog = (mylenth: number) => {
-		while  (chatLog.length > mylenth) {			
-				chatLog.splice(0, 1);			
+		while  (chatLog.length > mylenth) {	
+				const NewMessage = chatLog[0];
+				setOutputMessage((prevOutputMessage) => [...prevOutputMessage, NewMessage]);
+				chatLog.splice(0, 1);		
 		}		
 	};
 	const onUndoChatLog = () => {				
@@ -96,9 +100,38 @@ export const Menu = ({
 	};
     useEffect(() => {
 		if (autoDeleteLog) {
-		  onDeleteChatLog(25);
+		  onDeleteChatLog(10);
 		}
 	}, [autoDeleteLog,chatLog.length]);
+	
+	const handleDownloadChatLog = () => {
+	  const allMessages = [...outputMessage, ...chatLog];
+	  // 添加索引
+	  const chatLogWithIndex = allMessages.map((message, index) => ({
+		//index: index + 1,
+		...message,
+		role: `${index + 1} ${message.role}`,
+	  }) );
+
+	  // 创建一个 Blob 对象
+	  const blob = new Blob([JSON.stringify(chatLogWithIndex, null, 2)], {
+		type: 'application/json',
+	  });
+
+	  // 创建一个 URL 对象
+	  const url = URL.createObjectURL(blob);
+
+	  // 创建一个 a 标签
+	  const a = document.createElement('a');
+	  a.href = url;
+	  a.download = 'chatLog.json';
+
+	  // 触发下载
+	  a.click();
+
+	  // 释放 URL 对象
+	  URL.revokeObjectURL(url);
+	};
 
 	
   return (
@@ -129,7 +162,7 @@ export const Menu = ({
           )}
 		   <IconButton
             iconName="24/Trash"
-            label="全消去"
+            label="全消し"
 			isProcessing={false}
             onClick={() =>  onDeleteChatLog(0) }
           ></IconButton>
@@ -155,6 +188,12 @@ export const Menu = ({
               onClick={() => setautoDeleteLog(true)}
             />
           )}
+		  <IconButton
+            iconName="24/DownloadAlt"
+            label="log DL"
+            isProcessing={false}
+             onClick={handleDownloadChatLog}
+          ></IconButton>
 		  
         </div>
       </div>
