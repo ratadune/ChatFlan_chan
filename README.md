@@ -1,11 +1,12 @@
 # ChatFlan_chan :Forked from pixiv/ChatVRM
 + A modified model with new features which can chat with Flandre
 + フランちゃんとチャットできる新機能を備えた改良chatVRMです
++ 和芙蘭聊天的愉快chatVRM改良版本
 ### Chat Flanchan ⇨ [Play Here!](https://ratadune.github.io/ChatVRM_modified/)
 <img decoding="async" src="https://ratadune.github.io/ratadunemain.io/ogp.png" width="100%">
 
 ---
-# New Features
+# New Features新機能
 + 【JP】
     - [x] 自動チャットログ削除ボタン。（最新のチャットログ25件のみを保持し、GPTの応答不良を防止します）
     - [x] 全ログ削除ボタン。
@@ -20,6 +21,13 @@
     - [x] Switch button for Japanese/Chinese speech recognition.
     - [x] Press Enter key to send message and press Shfit key to auto focus on textbox.
     - [x] Using Flandre model in default which made by me.
++ 【CH】
+    - [x] 撤消按鈕（刪除前面的兩條消息，一條是你發送的，一條是GPT發送的）。
+    - [x] 自動刪除聊天日誌按鈕（僅保留最新的25條聊天日誌，以防止GPT無法響應）。
+    - [x] 刪除所有日誌按鈕。
+    - [x] 日語/中文語音識別切換按鈕。
+    - [x] 按Enter鍵發送消息，按Shift鍵自動聚焦在文字框上。
+    - [x] 默認使用我創建的芙蘭模型。
 ---
 ChatVRMはブラウザで簡単に3Dキャラクターと会話ができるデモアプリケーションです。
 VRMファイルをインポートしてキャラクターに合わせた声の調整や、感情表現を含んだ返答文の生成などを行うことができます。
