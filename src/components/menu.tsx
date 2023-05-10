@@ -100,7 +100,7 @@ export const Menu = ({
 	};
     useEffect(() => {
 		if (autoDeleteLog) {
-		  onDeleteChatLog(10);
+		  onDeleteChatLog(25);
 		}
 	}, [autoDeleteLog,chatLog.length]);
 	
