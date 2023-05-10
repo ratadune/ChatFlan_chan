@@ -20,6 +20,24 @@ export const Introduction = ({ openAiKey, onChangeAiKey }: Props) => {
       <div className="mx-auto my-auto max-w-3xl max-h-full p-24 overflow-auto bg-white rounded-16">
         <div className="my-24">
           <div className="my-8 font-bold typography-20 text-secondary ">
+            機能：
+          </div>
+          <div>
+             [上のメニュー]<br>
+             設定: 音声変更、プロンプト変更、対話変更<br>
+             log:対話ログ確認<br>
+             全消去:話全消去、やり直す（特にプロンプト変更時）<br>
+             Undo:最新の対話消す(反応が悪くの時)<br>
+             AutoKill(on/off):このchatシスタムは対話ログが多すぎると停止します。そのため、直近25ログを保持し、他のすべてを自動的に消去します。設定内で対話番号を確認できます。<br>
+            <br>[下のバタン]<br>
+            T日/中:音声認識の言語切り替え。<br>
+            マイクバタン：音声で入力する。<br>
+            送信バタン：キーボードで入力する。
+          </div>
+        </div>
+        
+        <div className="my-24">
+          <div className="my-8 font-bold typography-20 text-secondary ">
             このアプリケーションについて
           </div>
           <div>
