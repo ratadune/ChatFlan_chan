@@ -1,4 +1,6 @@
-# ChatVRM :Forked from pixiv/ChatVRM
+# ChatFlan_chan :Forked from pixiv/ChatVRM
++ A modified model with new features which can chat with Flandre
++ フランちゃんとチャットできる新機能を備えた改良chatVRMです
 ### Chat Flanchan ⇨ [Play Here!](https://ratadune.github.io/ChatVRM_modified/)
 <img decoding="async" src="https://ratadune.github.io/ratadunemain.io/ogp.png" width="100%">
 
